@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import PizzaForm
+from .forms import PizzaForm ,MultiplePizzaForm
 
 
 def home(request):
@@ -7,6 +7,7 @@ def home(request):
 
 
 def order(request):
+    multiple_form = MultiplePizzaForm()
     if request.method == 'POST':
         filled_form = PizzaForm(request.POST)
         if filled_form.is_valid():
